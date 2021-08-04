@@ -40,59 +40,62 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(10.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(top: 180.0),
-              child: TextField(
-                onChanged: (text) {
-                  value = text;
-                },
-                decoration: InputDecoration(
-                  hintText: "Enter a quote to find the relevant book(s)",
-                  hintStyle: GoogleFonts.ubuntu(),
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(35)),
-                    borderSide: BorderSide(color: Colors.transparent),
+        child: SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(top: 180.0),
+                child: TextField(
+                  onChanged: (text) {
+                    value = text;
+                  },
+                  decoration: InputDecoration(
+                    hintText: "Enter a quote to find the relevant book(s)",
+                    hintStyle: GoogleFonts.ubuntu(),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(35)),
+                      borderSide: BorderSide(color: Colors.transparent),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(35)),
+                      borderSide: BorderSide(color: Colors.white70),
+                    ),
+                    suffixIcon: Icon(
+                      Icons.clear,
+                    ),
+                    filled: true,
+                    fillColor: Colors.black87,
                   ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(35)),
-                    borderSide: BorderSide(color: Colors.white70),
-                  ),
-                  suffixIcon: Icon(
-                    Icons.clear,
-                  ),
-                  filled: true,
-                  fillColor: Colors.black87,
-                ),
-                style: GoogleFonts.ubuntu(),
-                maxLength: 100,
-                maxLines: 1,
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 0),
-              child: ElevatedButton(
-                child: Text(
-                  "Search",
-                  style: TextStyle(
-                    color: Colors.black,
-                  ),
-                ),
-                onPressed: () {
-                  return res();
-                },
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.white),
-                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                      RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(18.0),
-                          side: BorderSide(color: Colors.black))),
+                  style: GoogleFonts.ubuntu(),
+                  maxLength: 100,
+                  maxLines: 1,
                 ),
               ),
-            ),
-          ],
+              Padding(
+                padding: const EdgeInsets.only(top: 0),
+                child: ElevatedButton(
+                  child: Text(
+                    "Search",
+                    style: TextStyle(
+                      color: Colors.black,
+                    ),
+                  ),
+                  onPressed: () {
+                    return res();
+                  },
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(Colors.white),
+                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(18.0),
+                            side: BorderSide(color: Colors.black))),
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
